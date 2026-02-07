@@ -90,7 +90,7 @@ export async function GET(request: Request) {
           display: "flex",
           flexWrap: "wrap",
           width: grid.columns * grid.dotSpacing,
-          marginTop: Math.floor(height * 0.12),
+          marginTop: Math.floor(height * 0.2),
         }}
       >
         {dots}
