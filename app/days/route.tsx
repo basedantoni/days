@@ -69,7 +69,8 @@ export async function GET(request: Request) {
     );
   }
 
-  const label = `days ${currentDay}/${totalDays}`;
+  const label = `day ${currentDay}/${totalDays}`;
+  const percentage = `${Math.floor((currentDay / totalDays) * 100)}%`;
   const fontSize = Math.max(12, Math.floor(width * 0.03));
 
   return new ImageResponse(
@@ -99,13 +100,27 @@ export async function GET(request: Request) {
       <div
         style={{
           display: "flex",
+          gap: "8px",
           marginTop: Math.floor(height * 0.04),
-          color: accent,
           fontSize: fontSize,
           letterSpacing: "0.1em",
         }}
       >
-        {label}
+        <span
+          style={{
+            color: secondary,
+          }}
+        >
+          {label}
+        </span>
+        <span style={{ color: secondary }}>&bull;</span>
+        <span
+          style={{
+            color: accent,
+          }}
+        >
+          {percentage}
+        </span>
       </div>
     </div>,
     {
